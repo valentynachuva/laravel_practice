@@ -62,7 +62,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Contact
+           OUR Contact
         </div>
     </div>
 </div>
