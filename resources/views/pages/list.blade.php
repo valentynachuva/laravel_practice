@@ -11,24 +11,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row"><a href="#">1</a></th>
-            <td>PHP for dummies</td>
-            <td>Dummy</td>
-            <td>NB-123-321</td>
-        </tr>
-        <tr>
-            <th scope="row"><a href="#">2</a></th>
-            <td>Super book</td>
-            <td>Superman</td>
-            <td>SB-321-543</td>
-        </tr>
-        <tr>
-            <th scope="row"><a href="#">3</a></th>
-            <td>MySQL for students</td>
-            <td>B. Teacher</td>
-            <td>MS-541-631</td>
-        </tr>
+        @foreach($books as $book)
+            <tr>
+                <th scope="row">{{ $book->id }}</th>
+                <td><a href="{{ route('show_book', ['id'=>$book->id]) }}">{{ $book->title }}</a></td>
+                <td>{{ $book->author }}</td>
+                <td>{{ $book->isbn }}</td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
     <nav aria-label="Page navigation example">
@@ -39,7 +29,7 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
-    </nav>
-    {{--{{ $users->links('vendor.pagination.bootstrap-4') }}--}}
+     </nav>
+    {{-- {{ $books->links('vendor.pagination.bootstrap-4') }}--}}
 
 @stop

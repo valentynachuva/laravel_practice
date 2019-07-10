@@ -6,14 +6,11 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('list_book')}}">List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">List</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Create</a>
+                <a class="nav-link" href="{{route('create')}}">Create</a>
             </li>
         </ul>
 
