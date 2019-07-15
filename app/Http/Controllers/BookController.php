@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\Messagges;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -47,14 +49,12 @@ class BookController extends Controller
         $book->author = $request->author;
         $book->isbn = $request->isbn;
         $book->save();
+        $request->session()->flash('success', 'Книга добавлена успешно!');
         return redirect()->to('/books');
-    //сохранение данных через фасад
 
+        //сохранение данных через фасад
 
-
-   // Book::create($request->all());
-
-
+        // Book::create($request->all());
     }
 
     /**
@@ -77,7 +77,8 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+  $book = Book::findOrFail($id);
+  return view('pages.edit', compact('book'));
     }
 
     /**
@@ -89,7 +90,15 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return  $request. $id;
+       //$book= Book::find($id);
+      //  $book->title = $request->title;
+      //  $book->author = $request->author;
+     //   $book->isbn = $request->isbn;
+    // //   $book->save();
+    //    $request->session()->flash('success', 'Книга обновлена успешно!');
+     //   return redirect()->to('/books');
+
     }
 
     /**
@@ -100,6 +109,17 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+
+        //  dd(__METHOD__,$id, request()->all());
+
+     //  $book = Book::destroy($id)->delete();
+
+  $book = Book::find($id);
+  $book->delete();
+  if ($book) {
+
+   return redirect()->route('list_book')->with('success', 'Книга № ' . $id.' удалена успешно' );
+       }
     }
 }

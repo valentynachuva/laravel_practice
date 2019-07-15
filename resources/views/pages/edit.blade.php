@@ -1,21 +1,37 @@
 @extends('layouts.default')
 @section('content')
-    <form>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter title">
-            <small id="titleHelp" class="form-text text-muted">Type some title.</small>
+    <form method="post" action="{{route('update',['id'=>$book->id])}})}}">
+        @csrf
+        @method ('PATCH')
+
+    <div class="field">
+        <label class="label" for="title">Title</label>
+
+        <div class="control">
+           <input type="text" class="input" name="title" placeholder="Title" value="{{$book->title}}">   </input>
         </div>
-        <div class="form-group">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" id="author" aria-describedby="authorHelp" placeholder="Enter author name">
-            <small id="authorHelp" class="form-text text-muted">Type some author name.</small>
         </div>
-        <div class="form-group">
-            <label for="isbn">ISBN</label>
-            <input type="text" class="form-control" id="isbn" aria-describedby="isbnHelp" placeholder="Enter ISBN">
-            <small id="isbnHelp" class="form-text text-muted">Type some ISBN code.</small>
+
+        <div class="field">
+            <label class="label" for ="author">Author</label>
+            <div class="control">
+                <input type="text" name="author" value="{{$book->author}}"></div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        <div class="field">
+            <label class="label" for ="isbn">ISBN</label>
+            <div class="control">
+                <input type="text" name="isbn" value="{{$book->isbn}}"></div>
+
+        </div>
+        </div>
+<div class="field" >
+    <div class="control">
+        <button href="#"type="submit" class="btn btn-primary" >Save</button>
+    </div>
+
+        </div>
+
     </form>
 @stop

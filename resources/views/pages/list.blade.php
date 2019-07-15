@@ -11,10 +11,11 @@
         </tr>
         </thead>
         <tbody>
+        @include('pages.message')
         @foreach($books as $book)
             <tr>
                 <th scope="row">{{ $book->id }}</th>
-                <td><a href="{{ route('show_book', ['id'=>$book->id]) }}">{{ $book->title }}</a></td>
+                <td><a href="{{route('show_book', ['id'=>$book->id]) }}">{{ $book->title }}</a></td>
                 <td>{{ $book->author }}</td>
                 <td>{{ $book->isbn }}</td>
             </tr>

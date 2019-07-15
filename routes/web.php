@@ -19,4 +19,8 @@ Route::get('/books', 'BookController@index')->name('list_book');
 
 Route::get('/book/{id}', 'BookController@show')->name('show_book');
 
-Route::delete('/book/{id}', 'BookController@destroy');
+Route::delete('/book/{id}', 'BookController@destroy')->name('destroy');
+
+Route::get('/book/{id}','BookController@edit')->name('edit');
+
+Route::patch('/book/{id}','BookController@update')->name('update');
