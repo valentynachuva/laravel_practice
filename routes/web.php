@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/book', 'BookController@create')->name('create');
+Route::get('/book', 'BookControllern@create')->name('create');
 
-Route::post('/book', 'BookController@store')->name('create_book');
+Route::post('/book', 'BookControllern@store')->name('create_book');
 
-Route::get('/books', 'BookController@index')->name('list_book');
+Route::get('/books', 'BookControllern@index')->name('list_book');
 
-Route::get('/book/{id}', 'BookController@show')->name('show_book');
+Route::get('/book/{id}', 'BookControllern@show')->name('show_book');
 
-Route::delete('/book/{id}', 'BookController@destroy')->name('destroy');
+Route::delete('/book/{id}', 'BookControllern@destroy')->name('destroy');
 
-Route::get('/book/{id}','BookController@edit')->name('edit');
+Route::get('/book/{id}/edit','BookControllern@edit')->name('edit');
 
-Route::patch('/book/{id}','BookController@update')->name('update');
+Route::patch('/book/{id}','BookControllern@update')->name('update');
+
+

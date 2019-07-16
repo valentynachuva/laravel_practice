@@ -8,7 +8,7 @@ use App\Messagges;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
-class BookController extends Controller
+class BookControllern extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -89,15 +89,17 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update()
     {
-        $book = Book::find($id);
-       $book->title = request('title');
-        $book->author = request('author');
-       $book->author = request('author');
-      $book->save();
-      dd($book);
-       // return redirect()->route('list_book')->with('success', 'Книга № ' . $id.' обновлена успешно' );
+        dd(\request()->all());
+      //  $book= Book::find($id);
+    ////    $book->title = $request->title;
+     //   $book->author = $request->author;
+     ///   $book->isbn = $request->isbn;
+      //  $book->save();
+      //  if ($book) {
+       //     return redirect()->route('list_book')->with('success', 'Книга № ' . $id.' обновлена успешно' );
+      //  }
 
     }
 
@@ -109,11 +111,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-
-
         //  dd(__METHOD__,$id, request()->all());
-
-        //  $book = Book::destroy($id)->delete();
 
         $book = Book::find($id);
         $book->delete();
