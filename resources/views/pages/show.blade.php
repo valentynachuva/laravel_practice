@@ -13,12 +13,12 @@
                </div>
         </form>
 
-        <form method="get" action="{{route('edit',['id'=>$book->id])}}">
+        <form action="{{route('edit',['id'=>$book->id])}}">
             @csrf
 
             <div class="field">
                 <div class="control">
-                    <button type="submit" href="" class=" btn btn-primary" style="margin-bottom: 10px">Edit</button>
+                    <button type="submit" action="{{route('update',['id'=>$book->id])}}" class=" btn btn-primary" style="margin-bottom: 10px" >Edit</button>
                 </div>
             </div>
 

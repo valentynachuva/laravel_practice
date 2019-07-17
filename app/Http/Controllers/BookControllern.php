@@ -49,7 +49,7 @@ class BookControllern extends Controller
         $book->title = $request->title;
         $book->author = $request->author;
         $book->isbn = $request->isbn;
-        $book->save();
+        $book->save();;
         $request->session()->flash('success', 'Книга добавлена успешно!');
         return redirect()->to('/books');
 
@@ -79,7 +79,8 @@ class BookControllern extends Controller
     public function edit($id)
     {
         $book = Book::find($id);
-       return view('/pages.edit', compact('book'));
+        return view('/pages.edit', compact('book'));
+
     }
 
     /**
@@ -89,17 +90,22 @@ class BookControllern extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request, $id)
     {
-        dd(\request()->all());
-      //  $book= Book::find($id);
-    ////    $book->title = $request->title;
-     //   $book->author = $request->author;
-     ///   $book->isbn = $request->isbn;
-      //  $book->save();
-      //  if ($book) {
-       //     return redirect()->route('list_book')->with('success', 'Книга № ' . $id.' обновлена успешно' );
-      //  }
+
+        $book = Book::find($id);
+        //  dd($book);
+
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->isbn = $request->isbn;
+        //    dd($book);
+        $book->save();
+
+        if ($book) {
+            return redirect()->route('list_book')->with('success', 'Книга № ' . $id . ' обновлена успешно');
+        }
+        // }
 
     }
 
